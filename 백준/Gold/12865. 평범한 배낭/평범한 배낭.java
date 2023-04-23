@@ -9,15 +9,15 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
-        int[] W = new int[K + 1];
-        int[] V = new int[K + 1];
+        int[] W = new int[N + 1];
+        int[] V = new int[N + 1];
         int[] dp = new int[K + 1];
         for (int i = 1; i <= N; i++) {
             StringTokenizer str = new StringTokenizer(br.readLine());
             W[i] = Integer.parseInt(str.nextToken());
             V[i] = Integer.parseInt(str.nextToken());
         }
-        
+
         for (int i = 1; i <= N; i++) {
             for (int j = K; j - W[i] >= 0; j--) {
                 dp[j] = Math.max(dp[j], dp[j - W[i]] + V[i]);
