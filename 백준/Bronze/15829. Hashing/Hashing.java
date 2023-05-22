@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int L = Integer.parseInt(br.readLine());
+        double[] powValue = new double[50];
         int result = 0;
         String line = br.readLine();
         HashMap<String, Integer> map = new HashMap<>();
@@ -14,8 +15,11 @@ public class Main {
             map.put(String.valueOf((char)(96 + i)), i);
         }
         for (int i = 0; i < L; i++) {
+            powValue[i] = Math.pow(31, i);
+        }
+        for (int i = 0; i < L; i++) {
             int tmp = map.get(String.valueOf(line.charAt(i)));
-            result += tmp * Math.pow(31, i);
+            result += tmp * powValue[i];
         }
         System.out.println(result);
     }
